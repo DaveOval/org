@@ -3,6 +3,10 @@
     margin-bottom: 24px;
     position: relative;
 }
+.colaborador:hover{
+    transform: scale(1.05);
+    transition: 0.3s all ;
+}
 .colaborador .encabezado{
     background-color: #c52121;
     border-radius: 10px 10px 0px 0px;
@@ -14,6 +18,10 @@
     position: relative;
     bottom: -50px;
     object-fit: cover;
+}
+.colaborador img:hover{
+    transform: scale(1.05);
+    transition: 0.3s all;
 }
 .colaborador .info{
     background-color: #FFF;

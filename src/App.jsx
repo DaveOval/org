@@ -15,42 +15,48 @@ function App() {
       equipo: "Front End",
       foto: "https://github.com/daveoval.png",
       nombre: "Carlos Daivd",
-      puesto: "Programador"
+      puesto: "Programador",
+      fav: true,
     },
     {
       id: uuidv4(),
       equipo: "Front End",
       foto: "https://images.pexels.com/photos/2896853/pexels-photo-2896853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       nombre: "Lucio Sandalio",
-      puesto: "Programador"
+      puesto: "Programador",
+      fav: true,
     },
     {
       id: uuidv4(),
       equipo: "Front End",
       foto: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       nombre: "Corina Yanira",
-      puesto: "Programador"
+      puesto: "Programador",
+      fav: true,
     },
     {
       id: uuidv4(),
       equipo: "Front End",
       foto: "https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       nombre: "Maria Carmen Sara",
-      puesto: "Programador"
+      puesto: "Programador",
+      fav: false,
     },
     {
       id: uuidv4(),
       equipo: "Programacion",
       foto: "https://github.com/daveoval.png",
       nombre: "Albino Azahar",
-      puesto: "Programador"
+      puesto: "Programador",
+      fav: false,
     },
     {
       id: uuidv4(),
       equipo: "Programacion",
       foto: "https://images.pexels.com/photos/2896853/pexels-photo-2896853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       nombre: "Ylenia Fanny",
-      puesto: "Programador"
+      puesto: "Programador",
+      fav: true,
     },
     {
       id: uuidv4(),
@@ -259,6 +265,18 @@ function App() {
   const crearEquipo = (nuevoEquipo) =>{
     actualizarEquipos([...equipos, {...nuevoEquipo, id: uuidv4()}])
   }
+  //
+  const like = (id) =>{
+    console.log("Like", id)
+    const colaboradoresAcualizados = colaboradores.map((colaborador) =>{
+      if(colaborador.id === id){
+        colaborador.fav = !colaborador.fav
+      }
+      return colaborador
+    })
+    actualizarColaboradores(colaboradoresAcualizados)
+  }
+
   
   return (
     <div>
@@ -279,6 +297,7 @@ function App() {
           colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
           eliminarColaborador={eliminarColaborador}
           actualizarColor={actualizarColor}
+          like={like}
           />
         )
       }
